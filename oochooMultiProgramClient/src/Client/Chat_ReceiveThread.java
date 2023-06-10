@@ -75,7 +75,7 @@ public class Chat_ReceiveThread extends Thread {
 							connectedIds.add(idLists[i]);
 						}
 						
-						newMsg = "---------------------------- 입장하셨습니다. ----------------------------";
+						newMsg = "----------------------------------- 입장하셨습니다. -----------------------------------";
 					}else {
 						connectedIds.add(id);
 						newMsg = arr[0];
@@ -123,6 +123,11 @@ public class Chat_ReceiveThread extends Thread {
 				}
 				if(receive[0].equals(ServiceCode.CHATTING_EXISTID)) {
 					notice.setText("이미 사용중인 채팅명입니다. 다른 채팅명을 입력해주세요.");
+					notice.setForeground(Color.RED);
+					continue;
+				}
+				if(receive[0].equals(ServiceCode.CHATTING_WRONGID)) {
+					notice.setText("입력하신 채팅명은 없는 채팅명입니다. 확인해주세요.");
 					notice.setForeground(Color.RED);
 					continue;
 				}

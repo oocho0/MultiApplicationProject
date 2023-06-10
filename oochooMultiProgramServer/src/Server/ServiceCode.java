@@ -39,4 +39,5 @@ public class ServiceCode {
 	public static final int CHATTING_SEND = 407;
 	public static final String CHATTING_ENDID = "CODE$ENDID$408";
 	public static final String CHATTING_EXISTID = "CODE$409";
+	public static final String CHATTING_WRONGID = "CODE$410";
 }

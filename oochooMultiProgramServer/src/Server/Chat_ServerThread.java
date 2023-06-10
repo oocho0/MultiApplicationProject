@@ -52,12 +52,12 @@ public class Chat_ServerThread extends Thread {
 					sendToAll(msg);
 				}
 				if(receiveCode == ServiceCode.CHATTING_WHISPER) {
-					String[] splitMsg = dis.readUTF().split(ServiceCode.CHATTING_ENDID,2);
+					String[] splitMsg = dis.readUTF().split(", ",2);
 					String[] idLists = splitMsg[0].split(",");
 					ArrayList<String> whisperIds = new ArrayList<>();
 					for(String id: idLists) {
 						if(!clients.containsKey(id)) {
-							dos.writeUTF(ServiceCode.CHATTING_EXISTID+",");
+							dos.writeUTF(ServiceCode.CHATTING_WRONGID+",");
 							break;
 						}
 						whisperIds.add(id);

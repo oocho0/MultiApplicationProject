@@ -176,7 +176,7 @@ public class Chat_Tab extends JPanel implements ActionListener {
 						idList += id+",";
 					}
 				}
-				idList += ServiceCode.CHATTING_ENDID;
+				idList += " ";
 				sendMsg = idList+chatMsg;
 				nc.sendMsg(ServiceCode.CHATTING_WHISPER, sendMsg);
 			}else {
