@@ -62,9 +62,9 @@ public class BaseballGame_Frame extends JFrame implements ActionListener, Docume
 		input3.getDocument().addDocumentListener(this);
 		button = new JButton("입력");
 		button.addActionListener(this);
-		noticeInputLabel = new JLabel("");
+		noticeInputLabel = new JLabel("1~9 중 세 숫자를 중복없이 입력하세요.");
 		noticeInputLabel.setOpaque(true);
-		noticeInputLabel.setForeground(Color.RED);
+		noticeInputLabel.setForeground(Color.BLACK);
 		inputPanel.add(input1);
 		inputPanel.add(input2);
 		inputPanel.add(input3);
@@ -154,14 +154,16 @@ public class BaseballGame_Frame extends JFrame implements ActionListener, Docume
 			input[1] = input2.getText().trim();
 			input[2] = input3.getText().trim();
 			for(int i=0;i<input.length;i++) {
-				if(CheckLetters.isEmpty(input[i])) {
+				if(input[i].equals("")) {
 					noticeInputLabel.setText("번호를 입력하지 않았습니다.");
+					noticeInputLabel.setForeground(Color.RED);
 					return;
 				}
 				sendNum += input[i]+",";
 			}
 			if(input[0] == input[1]||input[0]==input[2]||input[1]==input[2]) {
 				noticeInputLabel.setText("중복된 번호가 있습니다. 다시 입력하세요.");
+				noticeInputLabel.setForeground(Color.RED);
 				return;
 			}
 			receiveStr = nc.sendMsgReceiveMsg(ServiceCode.BASEBALLGAME_SEND,sendNum);
@@ -196,16 +198,23 @@ public class BaseballGame_Frame extends JFrame implements ActionListener, Docume
 	}
 	
 	public void checkTextField() {
-		if(CheckLetters.isWrongGameInput(input1.getText())&&!CheckLetters.isEmpty(input1.getText())){
+		if(CheckLetters.isWrongGameInput(input1.getText())&&input1.getText().trim().equals("")){
 			noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+			noticeInputLabel.setForeground(Color.RED);
+			return;
 		}
-		if(CheckLetters.isWrongGameInput(input2.getText())&&!CheckLetters.isEmpty(input2.getText())) {
+		if(CheckLetters.isWrongGameInput(input2.getText())&&input2.getText().trim().equals("")) {
 			noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+			noticeInputLabel.setForeground(Color.RED);
+			return;
 		}
-		if(CheckLetters.isWrongGameInput(input3.getText())&&!CheckLetters.isEmpty(input3.getText())) {
+		if(CheckLetters.isWrongGameInput(input3.getText())&&input3.getText().trim().equals("")) {
 			noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+			noticeInputLabel.setForeground(Color.RED);
+			return;
 		}
 		noticeInputLabel.setText("");
+		noticeInputLabel.setForeground(Color.BLACK);
 	}
 	
 	public static void setUIFont(FontUIResource f) {

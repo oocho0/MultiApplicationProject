@@ -75,31 +75,28 @@ public class Chat_ReceiveThread extends Thread {
 							connectedIds.add(idLists[i]);
 						}
 						
-						newMsg = "----------------------------------- 입장하셨습니다. -----------------------------------";
+						newMsg = "-------------------------------------- 입장하셨습니다. --------------------------------------";
 					}else {
 						connectedIds.add(id);
 						newMsg = arr[0];
 					}
 					clientList.setText("");
 					for(int i=0;i<connectedIds.size();i++) {
-						if(i%5==4) {
-							clientList.append(connectedIds.get(i)+"\n");
+						String idText = "";
+						if(connectedIds.get(i).equals(chatId)) {
+							idText = connectedIds.get(i)+" [ 나 ]";
 						}else {
-							clientList.append(connectedIds.get(i)+"\t");
+							idText = connectedIds.get(i);
+						}
+						if(i%5==4) {
+							clientList.append(idText+"\n");
+						}else {
+							clientList.append(idText+"\t");
 						}
 					}
 				}
 				if(receive[0].equals(ServiceCode.CHATTING_QUIT)){
 					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
-					connectedIds.remove(id);
-					clientList.setText("");
-					for(int i=0;i<connectedIds.size();i++) {
-						if(i%5==4) {
-							clientList.append(connectedIds.get(i)+"\n");
-						}else {
-							clientList.append(connectedIds.get(i)+"\t");
-						}
-					}
 					if(id.equals(chatId)) {
 						socket.close();
 						startPanel.setVisible(true);
@@ -113,9 +110,26 @@ public class Chat_ReceiveThread extends Thread {
 						notice.setForeground(Color.BLACK);
 						System.out.println(ServiceCode.CHATTING+"연결 종료");
 						break;
+					}else {
+						connectedIds.remove(id);
+						clientList.setText("");
+						for(int i=0;i<connectedIds.size();i++) {
+							String idText = "";
+							if(connectedIds.get(i).equals(chatId)) {
+								idText = connectedIds.get(i)+" [ 나 ]";
+							}else {
+								idText = connectedIds.get(i);
+							}
+							if(i%5==4) {
+								clientList.append(idText+"\n");
+							}else {
+								clientList.append(idText+"\t");
+							}
+						}
 					}
 				}
 				if(receive[0].equals(ServiceCode.CHATTING_MSG)) {
+					System.out.println(receive[1]);
 					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
 					if(id.equals(chatId)) {
 						newMsg = receive[1].replaceFirst(id, "- 나 -");

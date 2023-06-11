@@ -25,19 +25,17 @@ public class ServiceCode {
 	
 	public static final int BASEBALLGAME_REQUEST = 301;
 	public static final int BASEBALLGAME_ACCEPT = 302;
-	public static final int BASEBALLGAME_QUIT = 303;
-	public static final int BASEBALLGAME_SEND = 304;
-	public static final int BASEBALLGAME_RESTART = 305;
-	public static final int BASEBALLGAME_RESET = 306;
+	public static final int BASEBALLGAME_SEND = 303;
+	public static final int BASEBALLGAME_RESTART = 304;
+	public static final int BASEBALLGAME_RESET = 305;
 	
 	public static final int CHATTING_REQUEST = 401;
-	public static final int CHATTING_EXIT = 402;
-	public static final String CHATTING_QUIT = "CODE$403";
-	public static final String CHATTING_ENTER = "CODE$404";
+	public static final String CHATTING_ENTER = "CODE$402";
+	public static final int CHATTING_EXIT = 403;
+	public static final String CHATTING_QUIT = "CODE$404";
 	public static final int CHATTING_WHISPER = 405;
-	public static final String CHATTING_MSG = "CODE$406";
-	public static final int CHATTING_SEND = 407;
-	public static final String CHATTING_ENDID = "CODE$ENDID$408";
-	public static final String CHATTING_EXISTID = "CODE$409";
-	public static final String CHATTING_WRONGID = "CODE$410";
+	public static final int CHATTING_SEND = 406;
+	public static final String CHATTING_MSG = "CODE$407";
+	public static final String CHATTING_EXISTID = "CODE$408";
+	public static final String CHATTING_WRONGID = "CODE$409";
 }

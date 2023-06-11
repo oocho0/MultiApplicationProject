@@ -137,13 +137,13 @@ public class Chat_Tab extends JPanel implements ActionListener {
 		if(e.getSource()==startButton) {
 			try {
 				chatId = idInput.getText().trim();
-				if(CheckLetters.isEmpty(chatId)) {
+				if(chatId.equals("")) {
 					notice.setText("채팅명을 입력하세요. 3~10글자 한글, 영소대문자, 숫자");
 					idInput.setText("");
 					notice.setForeground(Color.RED);
 					return;
 				}
-				if(CheckLetters.isWrongId(chatId)) {
+				if(CheckLetters.isWrongName(chatId)) {
 					notice.setText("채팅명을 확인하세요. 3~10글자 한글, 영소대문자, 숫자만 특수문자X");
 					idInput.setText("");
 					notice.setForeground(Color.RED);
@@ -162,24 +162,41 @@ public class Chat_Tab extends JPanel implements ActionListener {
 			}
 		}
 		if(e.getSource()==textSubmit) {
-			chatMsg = textInput.getText();
+			chatMsg = textInput.getText().trim();
 			if(whisperIdInput.isEnabled()) {
 				String sendMsg = "";
-				String[] ids = whisperIdInput.getText().split(",");
+				String receiveIds = whisperIdInput.getText().trim();
+				if(receiveIds.equals("")) {
+					notice.setText("귓속말할 채팅명을 입력하세요.");
+					notice.setForeground(Color.red);
+					return;
+				}
+				if(chatMsg.equals("")) {
+					notice.setText("채팅할 말을 입력하세요.");
+					notice.setForeground(Color.red);
+					return;
+				}
+				String[] ids = receiveIds.split(",");
 				String idList = "";
 				for(String id : ids) {
 					id = id.trim();
 					if(!connectedIds.contains(id)) {
-						notice.setText("귓속말할 아이디가 올바르지 않습니다.");
+						notice.setText("귓속말할 채팅명이 올바르지 않습니다.");
 						notice.setForeground(Color.RED);
 					}else {
 						idList += id+",";
 					}
 				}
-				idList += " ";
+				idList += "*";
 				sendMsg = idList+chatMsg;
 				nc.sendMsg(ServiceCode.CHATTING_WHISPER, sendMsg);
 			}else {
+				if(chatMsg.equals("")) {
+					notice.setText("채팅할 말을 입력하세요.");
+					notice.setForeground(Color.red);
+					return;
+					
+				}
 				nc.sendMsg(ServiceCode.CHATTING_SEND, chatMsg);
 			}
 		}

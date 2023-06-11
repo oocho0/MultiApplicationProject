@@ -3,17 +3,6 @@ package Client;
 import java.util.regex.Pattern;
 
 public class CheckLetters {
-	/**
-	 * 빈 입력값 검사
-	 * @param id
-	 * @return 비여있으면 true
-	 */
-	public static boolean isEmpty(String id) {
-		if(id.trim() == ""|| id == null || id == "\\s") {
-			return true;
-		}
-		return false;
-	}
 	
 	/**
 	 * 아이디 형식 검사
