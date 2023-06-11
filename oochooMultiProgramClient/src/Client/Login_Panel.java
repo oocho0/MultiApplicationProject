@@ -1,5 +1,6 @@
 package Client;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -21,14 +22,13 @@ import javax.swing.JTextField;
 public class Login_Panel extends JPanel implements ActionListener {
 	
 	private JDialog loginPop;
-	private JLabel loginIDLabel;
 	private JTextField loginID;
-	private JLabel loginPWLabel;
+	private JLabel loginIDNotice;
 	private JPasswordField loginPW;
+	private JLabel loginPWNotice;
 	private JButton loginSubmit;
 	private JButton goSignup;
 	private JDialog signupPop;
-	private Login_SignupPanel signupPanel;
 	
 	private final String IP;
 	private Socket socket;
@@ -68,14 +68,18 @@ public class Login_Panel extends JPanel implements ActionListener {
 		pw.setLayout(new FlowLayout());
 		JPanel button = new JPanel();
 		button.setLayout(new FlowLayout());
-		loginIDLabel = new JLabel("아이디");
+		JLabel loginIDLabel = new JLabel("아이디");
 		loginID = new JTextField(25);
 		id.add(loginIDLabel);
 		id.add(loginID);
-		loginPWLabel = new JLabel("비밀번호");
+		loginIDNotice = new JLabel("   ");
+		loginIDNotice.setForeground(Color.RED);
+		JLabel loginPWLabel = new JLabel("비밀번호");
 		loginPW = new JPasswordField(25);
 		pw.add(loginPWLabel);
 		pw.add(loginPW);
+		loginPWNotice = new JLabel("   ");
+		loginPWNotice.setForeground(Color.RED);
 		loginSubmit = new JButton("로그인 하기");
 		loginSubmit.addActionListener(this);
 		goSignup = new JButton("회원가입 하기");
@@ -84,19 +88,21 @@ public class Login_Panel extends JPanel implements ActionListener {
 		button.add(goSignup);
 		login.setLayout(new BoxLayout(login, BoxLayout.Y_AXIS));
 		login.add(id);
+		login.add(loginIDNotice);
 		login.add(pw);
+		login.add(loginPWNotice);
 		login.add(button);
 		panel.setLayout(new GridBagLayout());
 		panel.add(login,gbc[1]);
 		add(panel);
 		
 		signupPop = new JDialog();
-		signupPop.setSize(500, 300);
+		signupPop.setSize(500, 500);
 		signupPop.setModal(true);
 		signupPop.setTitle("회원가입");
 		signupPop.setLocationRelativeTo(this);
 		
-		signupPanel = new Login_SignupPanel(signupPop, nc);
+		Login_SignupPanel signupPanel = new Login_SignupPanel(signupPop, nc);
 		signupPop.setLayout(new GridBagLayout());
 		signupPop.add(signupPanel, gbc[1]);
 		signupPop.setVisible(false);
@@ -104,24 +110,30 @@ public class Login_Panel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == loginSubmit) {
+			loginIDNotice.setText("   ");
+			loginPWNotice.setText("   ");
 			String id = loginID.getText().trim();
 			String pw = new String(loginPW.getPassword()).trim();
 			if(id.equals("")){
-				loginID.setText("아이디를 입력하지 않았습니다.");
+				loginIDNotice.setText("아이디를 입력하지 않았습니다.");
+				return;
+			}
+			if(CheckLetters.isWrongId(id)) {
+				loginIDNotice.setText("잘못된 아이디 형식입니다.");
 				return;
 			}
 			if(pw.equals("")) {
-				loginPW.setText("비밀번호를 입력하지 않았습니다.");
+				loginPWNotice.setText("비밀번호를 입력하지 않았습니다.");
 				return;
 			}
 			sendMsg = id+","+pw;
 			receiveCode = nc.sendMsgReceiveCode(ServiceCode.LOGIN_SEND,sendMsg);
 			if(receiveCode == ServiceCode.LOGIN_NO_ID) {
-				loginID.setText("존재하지 않는 아이디 입니다.");
+				loginIDNotice.setText("존재하지 않는 아이디 입니다.");
 				return;
 			}
 			if(receiveCode == ServiceCode.LOGIN_NO_PW) {
-				loginPW.setText("비밀번호가 맞지 않습니다.");
+				loginPWNotice.setText("비밀번호가 맞지 않습니다.");
 				return;
 			}
 			if(receiveCode == ServiceCode.LOGIN_SUCCESS) {
@@ -138,6 +150,5 @@ public class Login_Panel extends JPanel implements ActionListener {
 		if(e.getSource() == goSignup) {
 			signupPop.setVisible(true);
 		}
-		
 	}
 }
