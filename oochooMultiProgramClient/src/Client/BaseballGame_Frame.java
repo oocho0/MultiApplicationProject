@@ -27,7 +27,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.plaf.FontUIResource;
 
 @SuppressWarnings("serial")
-public class BaseballGame_Frame extends JFrame implements ActionListener, DocumentListener{
+public class BaseballGame_Frame extends JFrame implements ActionListener{
 	private BaseballGame_CountPanel baseballGamePanel;
 	private JTextField input1;
 	private JTextField input2;
@@ -55,24 +55,75 @@ public class BaseballGame_Frame extends JFrame implements ActionListener, Docume
 		label = new JLabel("번호를 입력하세요!");
 		label.setHorizontalAlignment(JLabel.CENTER);
 		input1 = new JTextField(1);
-		input1.getDocument().addDocumentListener(this);
+		input1.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void removeUpdate(DocumentEvent e) {check();}
+			@Override
+			public void insertUpdate(DocumentEvent e) {check();}
+			@Override
+			public void changedUpdate(DocumentEvent e) {}
+			public void check() {
+				String letters = input1.getText();
+				if((!letters.equals(""))&&CheckLetters.isWrongGameInput(letters)){
+					noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+					noticeInputLabel.setForeground(Color.RED);
+					return;
+				}
+				noticeInputLabel.setText("1~9 중 세 숫자를 중복없이 입력하세요.");
+				noticeInputLabel.setForeground(Color.BLACK);
+			}
+		});
 		input2 = new JTextField(1);
-		input2.getDocument().addDocumentListener(this);
+		input2.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void removeUpdate(DocumentEvent e) {check();}
+			@Override
+			public void insertUpdate(DocumentEvent e) {check();}
+			@Override
+			public void changedUpdate(DocumentEvent e) {}
+			public void check() {
+				String letters = input2.getText();
+				if((!letters.equals(""))&&CheckLetters.isWrongGameInput(letters)){
+					noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+					noticeInputLabel.setForeground(Color.RED);
+					return;
+				}
+				noticeInputLabel.setText("1~9 중 세 숫자를 중복없이 입력하세요.");
+				noticeInputLabel.setForeground(Color.BLACK);
+			}
+		});
 		input3 = new JTextField(1);
-		input3.getDocument().addDocumentListener(this);
+		input3.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void removeUpdate(DocumentEvent e) {check();}
+			@Override
+			public void insertUpdate(DocumentEvent e) {check();}
+			@Override
+			public void changedUpdate(DocumentEvent e) {}
+			public void check() {
+				String letters = input3.getText();
+				if((!letters.equals(""))&&CheckLetters.isWrongGameInput(letters)){
+					noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+					noticeInputLabel.setForeground(Color.RED);
+					return;
+				}
+				noticeInputLabel.setText("1~9 중 세 숫자를 중복없이 입력하세요.");
+				noticeInputLabel.setForeground(Color.BLACK);
+			}
+		});
 		button = new JButton("입력");
 		button.addActionListener(this);
 		noticeInputLabel = new JLabel("1~9 중 세 숫자를 중복없이 입력하세요.");
-		noticeInputLabel.setOpaque(true);
+		noticeInputLabel.setHorizontalAlignment(JLabel.CENTER);
 		noticeInputLabel.setForeground(Color.BLACK);
 		inputPanel.add(input1);
 		inputPanel.add(input2);
 		inputPanel.add(input3);
 		inputPanel.add(button);
-		inputPanel.add(noticeInputLabel);
 		iPanel.setLayout(new BorderLayout());
 		iPanel.add(label,BorderLayout.NORTH);
-		iPanel.add(inputPanel,BorderLayout.SOUTH);
+		iPanel.add(inputPanel,BorderLayout.CENTER);
+		iPanel.add(noticeInputLabel,BorderLayout.SOUTH);
 		
 		
 		baseballGamePanel = new BaseballGame_CountPanel();
@@ -161,7 +212,7 @@ public class BaseballGame_Frame extends JFrame implements ActionListener, Docume
 				}
 				sendNum += input[i]+",";
 			}
-			if(input[0] == input[1]||input[0]==input[2]||input[1]==input[2]) {
+			if(input[0].equals(input[1])||input[0].equals(input[2])||input[1].equals(input[2])) {
 				noticeInputLabel.setText("중복된 번호가 있습니다. 다시 입력하세요.");
 				noticeInputLabel.setForeground(Color.RED);
 				return;
@@ -181,40 +232,6 @@ public class BaseballGame_Frame extends JFrame implements ActionListener, Docume
 			}
 			label.setText("[현재 스코어] strike "+resultStr[0]+" ball "+resultStr[1]+" out "+resultStr[2]);
 		}
-	}
-
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		checkTextField();
-	}
-
-	@Override
-	public void removeUpdate(DocumentEvent e) {
-		checkTextField();
-	}
-
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-	}
-	
-	public void checkTextField() {
-		if(CheckLetters.isWrongGameInput(input1.getText())&&input1.getText().trim().equals("")){
-			noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
-			noticeInputLabel.setForeground(Color.RED);
-			return;
-		}
-		if(CheckLetters.isWrongGameInput(input2.getText())&&input2.getText().trim().equals("")) {
-			noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
-			noticeInputLabel.setForeground(Color.RED);
-			return;
-		}
-		if(CheckLetters.isWrongGameInput(input3.getText())&&input3.getText().trim().equals("")) {
-			noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
-			noticeInputLabel.setForeground(Color.RED);
-			return;
-		}
-		noticeInputLabel.setText("");
-		noticeInputLabel.setForeground(Color.BLACK);
 	}
 	
 	public static void setUIFont(FontUIResource f) {
