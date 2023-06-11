@@ -53,22 +53,23 @@ public class Chat_ServerThread extends Thread {
 				}
 				if(receiveCode == ServiceCode.CHATTING_WHISPER) {
 					String[] splitMsg = dis.readUTF().split("\\*",2);
-					System.out.println(splitMsg[0]);
-					System.out.println(splitMsg[1]);
 					String[] idLists = splitMsg[0].split(",");
 					ArrayList<String> whisperIds = new ArrayList<>();
+					boolean clientNocontainId = false;
 					for(String id: idLists) {
-						System.out.println(id);
 						if(!clients.containsKey(id)) {
 							dos.writeUTF(ServiceCode.CHATTING_WRONGID+",");
+							clientNocontainId = true;
 							break;
 						}
-						whisperIds.add(id);
+						if(!whisperIds.contains(id)) {
+							whisperIds.add(id);
+						}
 					}
-					if(whisperIds.size()!=idLists.length) {
+					if(clientNocontainId) {
 						continue;
 					}
-					msg = ServiceCode.CHATTING_MSG+",["+clientId+"]"+splitMsg[1];
+					msg = ServiceCode.CHATTING_WHISPER_MSG+",["+clientId+"]"+splitMsg[1];
 					System.out.println(msg);
 					sendWhisper(whisperIds, msg);
 				}

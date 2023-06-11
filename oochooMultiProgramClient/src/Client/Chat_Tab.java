@@ -149,6 +149,7 @@ public class Chat_Tab extends JPanel implements ActionListener {
 					notice.setForeground(Color.RED);
 					return;
 				}
+				whisperIdInput.setText("");
 				socket = new Socket(IP,ServiceCode.CHATTING_PORT);
 				nc = new NetworkClient(socket, ServiceCode.CHATTING);
 				nc.sendMsg(ServiceCode.CHATTING_REQUEST,chatId);
@@ -183,9 +184,9 @@ public class Chat_Tab extends JPanel implements ActionListener {
 					if(!connectedIds.contains(id)) {
 						notice.setText("귓속말할 채팅명이 올바르지 않습니다.");
 						notice.setForeground(Color.RED);
-					}else {
-						idList += id+",";
+						return;
 					}
+					idList += id+",";
 				}
 				idList += "*";
 				sendMsg = idList+chatMsg;

@@ -51,14 +51,10 @@ public class Chat_ReceiveThread extends Thread {
 		try {
 			while(dis!=null) {
 				String[] receive = dis.readUTF().split(",",2);
-				System.out.println(receive[0]+"|"+receive[1]);
-				System.out.println(receive[1]);
 				String newMsg = receive[1];
 				if(receive[0].equals(ServiceCode.CHATTING_ENTER)) {
 					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
 					String[] arr = receive[1].split(",",2);
-					System.out.println(arr[0]);
-					System.out.println(arr[1]);
 					if(id.equals(chatId)) {
 						System.out.println(ServiceCode.CHATTING+"서버 연결 완료");
 
@@ -129,11 +125,19 @@ public class Chat_ReceiveThread extends Thread {
 					}
 				}
 				if(receive[0].equals(ServiceCode.CHATTING_MSG)) {
-					System.out.println(receive[1]);
 					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
 					if(id.equals(chatId)) {
 						newMsg = receive[1].replaceFirst(id, "- 나 -");
 					}
+				}
+				if(receive[0].equals(ServiceCode.CHATTING_WHISPER_MSG)) {
+					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
+					if(id.equals(chatId)) {
+						newMsg = receive[1].replaceFirst(id, "- 나 -");
+					}
+					String whisperNewMsg = "(((귓속말)))>>>>>"+newMsg+"\n";
+					chattingArea.append(whisperNewMsg);
+					continue;
 				}
 				if(receive[0].equals(ServiceCode.CHATTING_EXISTID)) {
 					notice.setText("이미 사용중인 채팅명입니다. 다른 채팅명을 입력해주세요.");
