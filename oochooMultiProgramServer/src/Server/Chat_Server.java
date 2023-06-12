@@ -21,7 +21,7 @@ public class Chat_Server implements Runnable {
 		Socket socket = null;
 		
 		try {
-			serverSocket = new ServerSocket(6003);
+			serverSocket = new ServerSocket(ServiceCode.CHATTING_PORT);
 			System.out.println(Thread.currentThread().getName()+"채팅 서버가 준비되었습니다.");
 			while(true) {
 				socket = serverSocket.accept();

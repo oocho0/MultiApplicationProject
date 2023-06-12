@@ -53,7 +53,7 @@ public class BaseballGame_ServerThread extends Thread {
 				}
 			}
 		} catch (IOException e) {
-		}finally {
+		} finally {
 			System.out.println(threadName+"게임을 종료했습니다.");
 			System.out.printf("%s[%s:%s] 접속 해제\n",threadName,socket.getInetAddress(), socket.getPort());
 		}

@@ -70,8 +70,8 @@ public class Main_MenuFrame extends JFrame implements ChangeListener, ActionList
 		tabbedPane.addTab("야구게임",baseballGameTab);
 		Chat_Tab chatTab = new Chat_Tab(IP);
 		tabbedPane.addTab("채팅",chatTab);
-		contectsTab = new ContectsTab();
-		tabbedPane.addTab("비상연락망", contectsTab);
+		contectsTab = new ContectsTab(IP);
+		tabbedPane.addTab("사내 연락처", contectsTab);
 		tabbedPane.setSelectedIndex(0);
 		tabbedPane.addChangeListener(this);
 

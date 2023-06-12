@@ -39,4 +39,8 @@ public class ServiceCode {
 	public static final String CHATTING_EXISTID = "CODE$408";
 	public static final String CHATTING_WRONGID = "CODE$409";
 	public static final String CHATTING_WHISPER_MSG = "CODE$410";
+	
+	public static final int CONTECTS_REQUEST_FILE = 501;
+	public static final int CONTECTS_REQUEST_DB = 502;
+	public static final int CONTECTS_ACCEPT = 503;
 }

@@ -22,7 +22,7 @@ public class Login_Server implements Runnable {
 		ServerSocket serverSocket = null;
 		Socket socket = null;
 		try {
-			serverSocket = new ServerSocket(6001);
+			serverSocket = new ServerSocket(ServiceCode.LOGIN_PORT);
 			System.out.println(Thread.currentThread().getName()+"로그인 서버가 준비되었습니다.");
 			Login_CheckDBThread ct = new Login_CheckDBThread(userList, idList, USER_DB);
 			ct.start();
