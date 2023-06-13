@@ -43,4 +43,17 @@ public class ServiceCode {
 	public static final int CONTECTS_REQUEST_FILE = 501;
 	public static final int CONTECTS_REQUEST_DB = 502;
 	public static final int CONTECTS_ACCEPT = 503;
+	public static final int CONTECTS_EXIT = 504;
+	public static final int CONTECTS_QUIT = 505;
+	public static final int CONTECTS_ADD = 506;
+	public static final int CONTECTS_MODIFY = 507;
+	public static final int CONTECTS_DELETE = 508;
+	public static final int CONTECTS_SUCCESS = 509;
+	public static final int CONTECTS_ALL = 510;
+	public static final int CONTECTS_SEARCH_BYGROUP = 511;
+	public static final int CONTECTS_SEARCH_BYNAME = 512;
+	public static final int CONTECTS_SEARCH_BYTEL = 513;
+	public static final int CONTECTS_SEARCH_BYADDR = 514;
+	public static final String CONTECTS_RESULT = "CODE$515";
+	public static final String CONTECTS_NODATA = "CODE$516";
 }

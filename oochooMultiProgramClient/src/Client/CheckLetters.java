@@ -49,6 +49,24 @@ public class CheckLetters {
 		String regex = "^[\\w.%+\\-]+@[\\w.\\-]+\\.[a-zA-Z]{2,3}$";
 		return checkIsWrong(regex, email);
 	}
+	/**
+	 * 번호 형식 검사
+	 * @param tel
+	 * @return 올바르지 않은 입력 true
+	 */
+	public static boolean isWrongTel(String tel) {
+		String regex = "^01(?:0|1|[6-9])(?:\\d{3}|\\d{4})\\d{4}$";
+		return checkIsWrong(regex, tel);
+	}
+	/**
+	 * 주소 형식 검사 - 공백 허용
+	 * @param addr
+	 * @return 올바르지 않은 입력 true
+	 */
+	public static boolean isWrongAddr(String addr) {
+		String regex = "^[ㄱ-ㅎ가-힣a-zA-Z0-9\\s]*$";
+		return checkIsWrong(regex, addr);
+	}
 	
 	/**
 	 * BaseballGame 입력값 형식 검사

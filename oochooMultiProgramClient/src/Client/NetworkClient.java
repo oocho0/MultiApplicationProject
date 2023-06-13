@@ -35,6 +35,19 @@ public class NetworkClient {
 		return receiveCode;
 	}
 	
+	public String sendCodeReceiveMsg(int serviceCode) {
+		String receiveMsg = "";
+		try {
+			dos.writeInt(serviceCode);
+			System.out.println(serviceName + serviceCode+" SEND");
+			receiveMsg = dis.readUTF();
+			System.out.println(serviceName + receiveMsg+ " RECEIVE");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return receiveMsg;
+	}
+	
 	public int sendMsgReceiveCode(int serviceCode, String sendmsg) {
 		int receiveCode = 0;
 		try {

@@ -10,13 +10,17 @@ public class Contects_Info {
 	private String address;
 	
 	public Contects_Info(String group, String name, String tel, String address) {
-		this.serialNo = UUID.randomUUID().toString();
+		this(UUID.randomUUID().toString(), group, name, tel, address);
+	}
+
+	public Contects_Info(String serialNo, String group, String name, String tel, String address) {
+		this.serialNo = serialNo;
 		this.group = group;
 		this.name = name;
 		this.tel = tel;
 		this.address = address;
 	}
-	
+
 	public String getSerialNo() {
 		return this.serialNo;
 	}

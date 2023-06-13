@@ -210,6 +210,11 @@ public class BaseballGame_Frame extends JFrame implements ActionListener{
 					noticeInputLabel.setForeground(Color.RED);
 					return;
 				}
+				if(CheckLetters.isWrongGameInput(input[i])) {
+					noticeInputLabel.setText("한자리 숫자만 입력해주세요.");
+					noticeInputLabel.setForeground(Color.RED);
+					return;
+				}
 				sendNum += input[i]+",";
 			}
 			if(input[0].equals(input[1])||input[0].equals(input[2])||input[1].equals(input[2])) {
