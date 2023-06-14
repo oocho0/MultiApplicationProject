@@ -128,12 +128,14 @@ public class Chat_ReceiveThread extends Thread {
 					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
 					if(id.equals(chatId)) {
 						newMsg = receive[1].replaceFirst(id, "- 나 -");
+						textInput.setText("");
 					}
 				}
 				if(receive[0].equals(ServiceCode.CHATTING_WHISPER_MSG)) {
 					String id = receive[1].substring(receive[1].indexOf('[')+1,receive[1].lastIndexOf(']'));
 					if(id.equals(chatId)) {
 						newMsg = receive[1].replaceFirst(id, "- 나 -");
+						textInput.setText("");
 					}
 					String whisperNewMsg = "(((귓속말)))>>>>>"+newMsg+"\n";
 					chattingArea.append(whisperNewMsg);

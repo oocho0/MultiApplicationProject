@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class ContectsTab extends JPanel implements ActionListener {
+public class Contects_Tab extends JPanel implements ActionListener {
 	private final String[] LABELS = {"번호","부서","이름","전화번호","주소"};
 	private JLabel startLabel;
 	private JRadioButton seoul;
@@ -62,7 +62,7 @@ public class ContectsTab extends JPanel implements ActionListener {
 	private Map<Integer, Contects_Info> contects;
 	private Contects_Info modifyingInfo;
 	
-	public ContectsTab(String ip) {
+	public Contects_Tab(String ip) {
 		IP = ip;
 		contects = new HashMap<>();
 		

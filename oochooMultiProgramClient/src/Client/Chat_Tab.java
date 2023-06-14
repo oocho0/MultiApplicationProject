@@ -190,6 +190,8 @@ public class Chat_Tab extends JPanel implements ActionListener {
 				}
 				idList += "*";
 				sendMsg = idList+chatMsg;
+				notice.setText("귓속말 보내기를 체크하시면 귓속말을 보내실 수 있습니다.");
+				notice.setForeground(Color.BLACK);
 				nc.sendMsg(ServiceCode.CHATTING_WHISPER, sendMsg);
 			}else {
 				if(chatMsg.equals("")) {

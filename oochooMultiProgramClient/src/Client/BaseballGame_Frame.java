@@ -232,6 +232,7 @@ public class BaseballGame_Frame extends JFrame implements ActionListener{
 			baseballGamePanel.repaint();
 			if(result[0]==3) {
 				label.setText("축하합니다. 승리하셨습니다!");
+				noticeInputLabel.setText("   ");
 				button.setVisible(false);
 				return;
 			}

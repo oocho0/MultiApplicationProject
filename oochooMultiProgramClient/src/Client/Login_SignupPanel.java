@@ -239,6 +239,7 @@ public class Login_SignupPanel extends JPanel implements ActionListener {
 				signupName.setText("");
 				signupID.setText("");
 				signupPW.setText("");
+				signupPWCheck.setText("");
 				signupEmail.setText("");
 				signupPop.setVisible(false);
 				System.out.println(ServiceCode.LOGIN+"회원가입 성공");
@@ -248,8 +249,17 @@ public class Login_SignupPanel extends JPanel implements ActionListener {
 			signupName.setText("");
 			signupID.setText("");
 			signupPW.setText("");
+			signupPWCheck.setText("");
 			signupEmail.setText("");
 			signupPop.setVisible(false);
+			nameNotice.setText("국어, 영소대문자, 숫자만 가능");
+			nameNotice.setForeground(Color.BLACK);
+			idNotice.setText("3~10글자, 영소대문자, 숫자만 가능");
+			idNotice.setForeground(Color.BLACK);
+			pwNotice.setText("4~12글자, 영소대문자, 숫자, 특수문자 하나 이상씩 필수");
+			pwNotice.setForeground(Color.BLACK);
+			pwCheckNotice.setText("   ");
+			emailNotice.setText("   ");
 			System.out.println(ServiceCode.LOGIN+"회원가입 취소");
 		}
 	}
