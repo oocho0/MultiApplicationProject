@@ -118,13 +118,14 @@ public class Contects_ServerThread extends Thread{
 	public void searchAndSend() {
 		String sendInfos = "";
 		String sendMsg = "";
-		if(resultInfos==null) {
+		if(resultInfos.isEmpty()) {
 			sendMsg = ServiceCode.CONTECTS_NODATA;
 			System.out.println(threadName+"검색 결과 없음");
-		}else {
-			for(String a : resultInfos.keySet()) {
-				sendInfos += resultInfos.get(a)+"*";
-			}
+		}
+		for(String a : resultInfos.keySet()) {
+			sendInfos += resultInfos.get(a)+"*";
+		}
+		if(!sendMsg.equals(ServiceCode.CONTECTS_NODATA)) {
 			sendMsg = ServiceCode.CONTECTS_RESULT+","+sendInfos;
 		}
 		try {

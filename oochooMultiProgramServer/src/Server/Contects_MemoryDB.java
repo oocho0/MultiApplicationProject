@@ -24,7 +24,7 @@ public class Contects_MemoryDB implements Contects {
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, USER, PW);
-			String START = String.format("CREATE TABLE IF NOT EXISTS %s(serialNo VARCHAR(40) PRIMARY KEY, group1 VARCHAR(30), name VARCHAR(30), tel VARCHAR(15), address VARCHAR(30));", TABLE); 
+			String START = String.format("CREATE TABLE IF NOT EXISTS %s(serialNo VARCHAR(40) PRIMARY KEY, g_roup VARCHAR(30), name VARCHAR(30), tel VARCHAR(15), address VARCHAR(30));", TABLE); 
 			stmt  = conn.prepareStatement(START);
 			stmt.executeUpdate();
 		} catch (ClassNotFoundException e) {
@@ -36,13 +36,12 @@ public class Contects_MemoryDB implements Contects {
 	
 	@Override
 	public Map<String, Contects_Info> findInfo(Condition condition, String byType, String keyword) {
-		Map<String, Contects_Info> resultInfos = null;
+		Map<String, Contects_Info> resultInfos = new HashMap<>();
 		String INFO_SEARCH = String.format("SELECT * FROM %s WHERE %s LIKE '%s'",TABLE, byType, "%"+keyword+"%");
 		try {
 			stmt = conn.prepareStatement(INFO_SEARCH);
 			rs = stmt.executeQuery();
-			if(rs.next()) {
-				resultInfos = new HashMap<>();
+			while(rs.next()) {
 				resultInfos.put(rs.getString("serialNo"), new Contects_Info(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
@@ -53,7 +52,7 @@ public class Contects_MemoryDB implements Contects {
 
 	@Override
 	public Map<String, Contects_Info> getInfoByGroup(String group) {
-		return findInfo(null, "group1", group);
+		return findInfo(null, "g_roup", group);
 	}
 
 	@Override
@@ -84,7 +83,7 @@ public class Contects_MemoryDB implements Contects {
 		try {
 			stmt = conn.prepareStatement(INFO_GETALL);
 			rs = stmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				resultInfos.put(rs.getString("serialNo"), new Contects_Info(rs.getString(1),rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
@@ -104,7 +103,6 @@ public class Contects_MemoryDB implements Contects {
 			stmt.setString(4, info.getTel());
 			stmt.setString(5, info.getAddress());
 			stmt.executeUpdate();
-			System.out.println(info.getSerialNo());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -112,13 +110,13 @@ public class Contects_MemoryDB implements Contects {
 	
 	@Override
 	public void modifyInfo(Contects_Info info) {
-		String INFO_MODIFY = String.format("UPDATE %s SET group1 = ? name = ? tel = ? address = ? WHERE serialNo = ?",TABLE);
+		String INFO_MODIFY = String.format("UPDATE %s SET g_roup = ?, name = ?, tel = ?, address = ? WHERE serialNo = ?",TABLE);
 		try {
 			stmt = conn.prepareStatement(INFO_MODIFY);
 			stmt.setString(1, info.getGroup());
 			stmt.setString(2, info.getName());
 			stmt.setString(3, info.getTel());
-			stmt.setString(4, info.getAddress());
+			stmt.setString(4, "'"+info.getAddress()+"'");
 			stmt.setString(5, info.getSerialNo());
 		} catch (SQLException e) {
 			e.printStackTrace();

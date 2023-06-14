@@ -21,6 +21,10 @@ public class Contects_Info {
 		return this.no;
 	}
 	
+	public void setNo(int no) {
+		this.no = no;
+	}
+	
 	public String getGroup() {
 		return this.group;
 	}
