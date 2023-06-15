@@ -192,7 +192,7 @@ public class Contects_Tab extends JPanel implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		inputNotice.setText("");
+		inputNotice.setText("   ");
 		inputNotice.setForeground(Color.BLACK);
 		if(e.getSource()==startButton) {
 			try {

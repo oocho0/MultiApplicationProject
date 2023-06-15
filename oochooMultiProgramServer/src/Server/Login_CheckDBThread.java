@@ -20,7 +20,6 @@ public class Login_CheckDBThread extends Thread{
 	
 	@Override
 	public void run() {
-		/* userData파일에서 전체 데이터를 가져와 userList에 저장 */
 		File file = new File(USER_DB);
 		BufferedReader reader;
 		String line;
