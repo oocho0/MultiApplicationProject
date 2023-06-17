@@ -115,7 +115,8 @@ public class Contects_MemoryDB implements Contects {
 	
 	@Override
 	public void modifyInfo(Contects_Info info) {
-		String INFO_MODIFY = String.format("UPDATE %s SET g_roup = ?, name = ?, tel = ?, address = ? WHERE serialNo = ?",TABLE);
+		String INFO_MODIFY = String.format("UPDATE %s SET g_roup = ?, name = ?, "
+				+ "tel = ?, address = ? WHERE serialNo = ?",TABLE);
 		try {
 			stmt = conn.prepareStatement(INFO_MODIFY);
 			stmt.setString(1, info.getGroup());

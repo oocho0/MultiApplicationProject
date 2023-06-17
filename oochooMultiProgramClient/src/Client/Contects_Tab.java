@@ -390,7 +390,8 @@ public class Contects_Tab extends JPanel implements ActionListener {
 			info += addr;
 			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTECTS_MODIFY, info);
 			if(receiveCode == ServiceCode.CONTECTS_SUCCESS) {
-				contects.put(modifyingInfo.getNo(), new Contects_Info(modifyingInfo.getNo(), modifyingInfo.getSerialNo(),group, name, tel, addr));
+				contects.put(modifyingInfo.getNo(), new Contects_Info(modifyingInfo.getNo(),
+						modifyingInfo.getSerialNo(),group, name, tel, addr));
 				tableReset();
 				contectsToTable();
 				inputNotice.setText("정상 수정되었습니다.");
