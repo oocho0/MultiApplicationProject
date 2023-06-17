@@ -9,18 +9,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Contects_MemoryDB implements Contects {
+public class Contacts_MemoryDB implements Contacts {
 	
 	private static final String JDBC_DRIVER = "org.h2.Driver";
 	private static final String DB_URL = "jdbc:h2:tcp://localhost/~/test";
 	private static final String USER = "sa";
 	private static final String PW = "";
-	private static final String TABLE = "CONTECTS";
+	private static final String TABLE = "CONTACTS";
 	private Connection conn;
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
-	public Contects_MemoryDB() {
+	public Contacts_MemoryDB() {
 		try {
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, USER, PW);
@@ -38,14 +38,14 @@ public class Contects_MemoryDB implements Contects {
 	}
 	
 	@Override
-	public Map<String, Contects_Info> findInfo(Condition condition, String byType, String keyword) {
-		Map<String, Contects_Info> resultInfos = new HashMap<>();
+	public Map<String, Contacts_Info> findInfo(Condition condition, String byType, String keyword) {
+		Map<String, Contacts_Info> resultInfos = new HashMap<>();
 		String INFO_SEARCH = String.format("SELECT * FROM %s WHERE %s LIKE '%s'",TABLE, byType, "%"+keyword+"%");
 		try {
 			stmt = conn.prepareStatement(INFO_SEARCH);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
-				resultInfos.put(rs.getString("serialNo"), new Contects_Info(rs.getString(1),rs.getString(2),
+				resultInfos.put(rs.getString("serialNo"), new Contacts_Info(rs.getString(1),rs.getString(2),
 						rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
@@ -55,40 +55,40 @@ public class Contects_MemoryDB implements Contects {
 	}
 
 	@Override
-	public Map<String, Contects_Info> getInfoByGroup(String group) {
+	public Map<String, Contacts_Info> getInfoByGroup(String group) {
 		return findInfo(null, "g_roup", group);
 	}
 
 	@Override
-	public Map<String, Contects_Info> getInfoByName(String name) {
+	public Map<String, Contacts_Info> getInfoByName(String name) {
 		return findInfo(null, "name", name);
 	}
 
 	@Override
-	public Map<String, Contects_Info> getInfoByTel(String tel) {
+	public Map<String, Contacts_Info> getInfoByTel(String tel) {
 		return findInfo(null, "tel", tel);
 	}
 
 	@Override
-	public Map<String, Contects_Info> getInfoByAddr(String addr) {
+	public Map<String, Contacts_Info> getInfoByAddr(String addr) {
 		return findInfo(null, "address", addr);
 	}
 	
 	@Override
-	public Contects_Info getInfo(String serialNo) {
-		Map<String, Contects_Info> resultInfos = findInfo(null, "serialNo", serialNo);
+	public Contacts_Info getInfo(String serialNo) {
+		Map<String, Contacts_Info> resultInfos = findInfo(null, "serialNo", serialNo);
 		return resultInfos.get(serialNo);
 	}
 	
 	@Override
-	public Map<String, Contects_Info> getAll() {
+	public Map<String, Contacts_Info> getAll() {
 		String INFO_GETALL = String.format("SELECT * FROM %s", TABLE);
-		Map<String, Contects_Info> resultInfos = new HashMap<>();
+		Map<String, Contacts_Info> resultInfos = new HashMap<>();
 		try {
 			stmt = conn.prepareStatement(INFO_GETALL);
 			rs = stmt.executeQuery();
 			while(rs.next()) {
-				resultInfos.put(rs.getString("serialNo"), new Contects_Info(rs.getString(1),
+				resultInfos.put(rs.getString("serialNo"), new Contacts_Info(rs.getString(1),
 						rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 		} catch (SQLException e) {
@@ -98,7 +98,7 @@ public class Contects_MemoryDB implements Contects {
 	}
 
 	@Override
-	public void addInfo(Contects_Info info) {
+	public void addInfo(Contacts_Info info) {
 		String INFO_INSERT = String.format("INSERT INTO %s VALUES(?, ?, ?, ?, ?)",TABLE);
 		try {
 			stmt = conn.prepareStatement(INFO_INSERT);
@@ -114,7 +114,7 @@ public class Contects_MemoryDB implements Contects {
 	}
 	
 	@Override
-	public void modifyInfo(Contects_Info info) {
+	public void modifyInfo(Contacts_Info info) {
 		String INFO_MODIFY = String.format("UPDATE %s SET g_roup = ?, name = ?, "
 				+ "tel = ?, address = ? WHERE serialNo = ?",TABLE);
 		try {

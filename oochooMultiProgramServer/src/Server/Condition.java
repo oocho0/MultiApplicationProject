@@ -1,5 +1,5 @@
 package Server;
 
 public interface Condition {
-	boolean test(Contects_Info info);
+	boolean test(Contacts_Info info);
 }

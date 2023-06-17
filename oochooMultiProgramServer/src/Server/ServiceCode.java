@@ -4,12 +4,12 @@ public class ServiceCode {
 	public static final String LOGIN = "[로그인&회원가입 서버]>>> ";
 	public static final String BASEBALLGAME = "[야구게임 서버]>>> ";
 	public static final String CHATTING = "[채팅 서버]>>> ";
-	public static final String CONTECTS = "[연락처 서버]>>> ";
+	public static final String CONTACTS = "[연락처 서버]>>> ";
 	
 	public static final int LOGIN_PORT = 6001;
 	public static final int BASEBALLGAME_PORT = 6002;
 	public static final int CHATTING_PORT = 6003;
-	public static final int CONTECTS_PORT = 6004;
+	public static final int CONTACTS_PORT = 6004;
 	
 	public static final int LOGIN_REQUEST = 101;
 	public static final int LOGIN_ACCEPT = 102;
@@ -40,20 +40,20 @@ public class ServiceCode {
 	public static final String CHATTING_WRONGID = "CODE$409";
 	public static final String CHATTING_WHISPER_MSG = "CODE$410";
 	
-	public static final int CONTECTS_REQUEST_FILE = 501;
-	public static final int CONTECTS_REQUEST_DB = 502;
-	public static final int CONTECTS_ACCEPT = 503;
-	public static final int CONTECTS_EXIT = 504;
-	public static final int CONTECTS_QUIT = 505;
-	public static final int CONTECTS_ADD = 506;
-	public static final int CONTECTS_MODIFY = 507;
-	public static final int CONTECTS_DELETE = 508;
-	public static final int CONTECTS_SUCCESS = 509;
-	public static final int CONTECTS_ALL = 510;
-	public static final int CONTECTS_SEARCH_BYGROUP = 511;
-	public static final int CONTECTS_SEARCH_BYNAME = 512;
-	public static final int CONTECTS_SEARCH_BYTEL = 513;
-	public static final int CONTECTS_SEARCH_BYADDR = 514;
-	public static final String CONTECTS_RESULT = "CODE$515";
-	public static final String CONTECTS_NODATA = "CODE$516";
+	public static final int CONTACTS_REQUEST_FILE = 501;
+	public static final int CONTACTS_REQUEST_DB = 502;
+	public static final int CONTACTS_ACCEPT = 503;
+	public static final int CONTACTS_EXIT = 504;
+	public static final int CONTACTS_QUIT = 505;
+	public static final int CONTACTS_ADD = 506;
+	public static final int CONTACTS_MODIFY = 507;
+	public static final int CONTACTS_DELETE = 508;
+	public static final int CONTACTS_SUCCESS = 509;
+	public static final int CONTACTS_ALL = 510;
+	public static final int CONTACTS_SEARCH_BYGROUP = 511;
+	public static final int CONTACTS_SEARCH_BYNAME = 512;
+	public static final int CONTACTS_SEARCH_BYTEL = 513;
+	public static final int CONTACTS_SEARCH_BYADDR = 514;
+	public static final String CONTACTS_RESULT = "CODE$515";
+	public static final String CONTACTS_NODATA = "CODE$516";
 }

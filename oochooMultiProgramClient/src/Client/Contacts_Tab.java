@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class Contects_Tab extends JPanel implements ActionListener {
+public class Contacts_Tab extends JPanel implements ActionListener {
 	private final String[] LABELS = {"번호","부서","이름","전화번호","주소"};
 	private JLabel startLabel;
 	private JRadioButton seoul;
@@ -43,7 +43,7 @@ public class Contects_Tab extends JPanel implements ActionListener {
 	private JButton modify;
 	private JButton delete;
 	private JLabel resultNotice;
-	private JTable contectsTable;
+	private JTable contactsTable;
 	private JTextField inputGroup;
 	private JTextField inputName;
 	private JTextField inputTel;
@@ -59,12 +59,12 @@ public class Contects_Tab extends JPanel implements ActionListener {
 	private NetworkClient nc;
 	private int receiveCode;
 	private String receiveInfos;
-	private Map<Integer, Contects_Info> contects;
-	private Contects_Info modifyingInfo;
+	private Map<Integer, Contacts_Info> contacts;
+	private Contacts_Info modifyingInfo;
 	
-	public Contects_Tab(String ip) {
+	public Contacts_Tab(String ip) {
 		IP = ip;
-		contects = new HashMap<>();
+		contacts = new HashMap<>();
 		
 		setLayout(null);
 		startLabel = new JLabel("지부를 선택하세요");
@@ -130,8 +130,8 @@ public class Contects_Tab extends JPanel implements ActionListener {
 				return false;
 			}
 		};
-		contectsTable = new JTable(tableModel);
-		scrollTable = new JScrollPane(contectsTable);
+		contactsTable = new JTable(tableModel);
+		scrollTable = new JScrollPane(contactsTable);
 		
 		inputOne = new JPanel();
 		inputOne.setLayout(new FlowLayout());
@@ -196,21 +196,21 @@ public class Contects_Tab extends JPanel implements ActionListener {
 		inputNotice.setForeground(Color.BLACK);
 		if(e.getSource()==startButton) {
 			try {
-				socket = new Socket(IP, ServiceCode.CONTECTS_PORT);
-				nc = new NetworkClient(socket, ServiceCode.CONTECTS);
+				socket = new Socket(IP, ServiceCode.CONTACTS_PORT);
+				nc = new NetworkClient(socket, ServiceCode.CONTACTS);
 			} catch (UnknownHostException e1) {
 				e1.printStackTrace();
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
 			if(seoul.isSelected()) {
-				receiveCode = nc.sendCodeReceiveCode(ServiceCode.CONTECTS_REQUEST_FILE);
+				receiveCode = nc.sendCodeReceiveCode(ServiceCode.CONTACTS_REQUEST_FILE);
 			}
 			if(busan.isSelected()) {
-				receiveCode = nc.sendCodeReceiveCode(ServiceCode.CONTECTS_REQUEST_DB);
+				receiveCode = nc.sendCodeReceiveCode(ServiceCode.CONTACTS_REQUEST_DB);
 			}
-			if(receiveCode == ServiceCode.CONTECTS_ACCEPT) {
-				System.out.println(ServiceCode.CONTECTS+"서버 연결 완료");
+			if(receiveCode == ServiceCode.CONTACTS_ACCEPT) {
+				System.out.println(ServiceCode.CONTACTS+"서버 연결 완료");
 				switchPanel(true);
 			}
 		}
@@ -224,66 +224,66 @@ public class Contects_Tab extends JPanel implements ActionListener {
 				return;
 			}
 			if(byGroup.isSelected()) {
-				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTECTS_SEARCH_BYGROUP, keyword);
+				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTACTS_SEARCH_BYGROUP, keyword);
 				by = "부서명으로";
 			}
 			if(byName.isSelected()) {
-				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTECTS_SEARCH_BYNAME, keyword);
+				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTACTS_SEARCH_BYNAME, keyword);
 				by = "이름으로";
 			}
 			if(byTel.isSelected()){
-				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTECTS_SEARCH_BYTEL, keyword);
+				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTACTS_SEARCH_BYTEL, keyword);
 				by = "전화번호로";
 			}
 			if(byAddr.isSelected()) {
-				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTECTS_SEARCH_BYADDR, keyword);
+				receiveInfos = nc.sendMsgReceiveMsg(ServiceCode.CONTACTS_SEARCH_BYADDR, keyword);
 				by = "주소로";
 			}
-			contects.clear();
+			contacts.clear();
 			tableReset();
 			String[] arr = receiveInfos.split(",",2);
-			if(arr[0].equals(ServiceCode.CONTECTS_RESULT)) {
+			if(arr[0].equals(ServiceCode.CONTACTS_RESULT)) {
 				String[] infos = arr[1].split("\\*");
 				int i = 1;
 				for(String a: infos) {
 					String[] info = a.split(",");
-					contects.put(i, new Contects_Info(i++, info[0], info[1], info[2], info[3], info[4]));
+					contacts.put(i, new Contacts_Info(i++, info[0], info[1], info[2], info[3], info[4]));
 				}
-				contectsToTable();
-				resultNotice.setText("|| "+by+" '"+keyword+"' 검색 || 총 "+contects.size()+"건");
+				contactsToTable();
+				resultNotice.setText("|| "+by+" '"+keyword+"' 검색 || 총 "+contacts.size()+"건");
 				resultNotice.setForeground(Color.BLACK);
 				searchKeyword.setText("");
 			}
-			if(arr[0].equals(ServiceCode.CONTECTS_NODATA)) {
+			if(arr[0].equals(ServiceCode.CONTACTS_NODATA)) {
 				resultNotice.setText("|| "+by+" '"+keyword+"' 검색 || 결과가 없습니다.");
 				resultNotice.setForeground(Color.BLACK);
 				searchKeyword.setText("");
 			}
 		}
 		if(e.getSource()==total) {
-			contects.clear();
+			contacts.clear();
 			tableReset();
-			receiveInfos = nc.sendCodeReceiveMsg(ServiceCode.CONTECTS_ALL);
+			receiveInfos = nc.sendCodeReceiveMsg(ServiceCode.CONTACTS_ALL);
 			String[] arr = receiveInfos.split(",",2);
-			if(arr[0].equals(ServiceCode.CONTECTS_RESULT)) {
+			if(arr[0].equals(ServiceCode.CONTACTS_RESULT)) {
 				String[] infos = arr[1].split("\\*");
 				int i = 1;
 				for(String a : infos) {
 					String[] info = a.split(",");
-					contects.put(i, new Contects_Info(i++, info[0], info[1], info[2], info[3], info[4]));
+					contacts.put(i, new Contacts_Info(i++, info[0], info[1], info[2], info[3], info[4]));
 				}
-				contectsToTable();
-				resultNotice.setText("|| 전체 검색 || 총 "+contects.size()+"건");
+				contactsToTable();
+				resultNotice.setText("|| 전체 검색 || 총 "+contacts.size()+"건");
 				resultNotice.setForeground(Color.BLACK);
 			}
-			if(arr[0].equals(ServiceCode.CONTECTS_NODATA)) {
+			if(arr[0].equals(ServiceCode.CONTACTS_NODATA)) {
 				resultNotice.setText("|| 전체 검색 || 결과가 없습니다.");
 				resultNotice.setForeground(Color.BLACK);
 			}
 		}
 		if(e.getSource()==modify) {
 			colorCheck(resultNotice);
-			int[] infos =  contectsTable.getSelectedRows();
+			int[] infos =  contactsTable.getSelectedRows();
 			if(infos.length==0) {
 				resultNotice.setText("수정할 연락처를 선택하세요.");
 				resultNotice.setForeground(Color.RED);
@@ -297,7 +297,7 @@ public class Contects_Tab extends JPanel implements ActionListener {
 			inputLabel.setText("|| 연락처 수정 ||");
 			save.setText("수정");
 			reset.setText("취소");
-			modifyingInfo = contects.get(infos[0]+1);
+			modifyingInfo = contacts.get(infos[0]+1);
 			inputGroup.setText(modifyingInfo.getGroup());
 			inputName.setText(modifyingInfo.getName());
 			inputTel.setText(modifyingInfo.getTel());
@@ -305,7 +305,7 @@ public class Contects_Tab extends JPanel implements ActionListener {
 		}
 		if(e.getSource()==delete) {
 			colorCheck(resultNotice);
-			int[] infos = contectsTable.getSelectedRows();
+			int[] infos = contactsTable.getSelectedRows();
 			if(infos.length==0) {
 				resultNotice.setText("삭제할 연락처를 선택하세요.");
 				resultNotice.setForeground(Color.RED);
@@ -313,15 +313,15 @@ public class Contects_Tab extends JPanel implements ActionListener {
 			}
 			String notice = "";
 			String sendInfo = "";
-			int origin = contects.size();
+			int origin = contacts.size();
 			for(int a : infos) {
-				Contects_Info anInfo = contects.get(a+1);
+				Contacts_Info anInfo = contacts.get(a+1);
 				sendInfo += anInfo.getSerialNo()+",";
 			}
-			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTECTS_DELETE, sendInfo);
-			if(receiveCode == ServiceCode.CONTECTS_SUCCESS) {
+			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTACTS_DELETE, sendInfo);
+			if(receiveCode == ServiceCode.CONTACTS_SUCCESS) {
 				for(int a:infos) {
-					Contects_Info anInfo = contects.get(a+1);
+					Contacts_Info anInfo = contacts.get(a+1);
 					if(modifyingInfo == anInfo) {
 						notice = "수정 중이던 연락처가 삭제되었습니다. | ";
 						save.setText("저장");
@@ -330,24 +330,24 @@ public class Contects_Tab extends JPanel implements ActionListener {
 						inputLabel.setText("|| 연락처 추가 ||");
 						modifyingInfo = null;
 					}
-					contects.remove(a+1);
+					contacts.remove(a+1);
 				}
 				int j = 1;
 				for(int i=1;i<=origin;i++) {
-					if(contects.get(i)==null) {
+					if(contacts.get(i)==null) {
 						continue;
 					}
-					if(contects.get(i).getNo()==j) {
+					if(contacts.get(i).getNo()==j) {
 						j++;
 					}else {
-						contects.get(i).setNo(j);
-						contects.put(j, contects.get(i));
-						contects.remove(i);
+						contacts.get(i).setNo(j);
+						contacts.put(j, contacts.get(i));
+						contacts.remove(i);
 						j++;
 					}
 				}
 				tableReset();
-				contectsToTable();
+				contactsToTable();
 				resultNotice.setText(notice+"총 "+infos.length+"건 삭제");
 				resultNotice.setForeground(Color.BLACK);
 			}
@@ -366,8 +366,8 @@ public class Contects_Tab extends JPanel implements ActionListener {
 			info += name + ",";
 			info += tel + ",";
 			info += addr;
-			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTECTS_ADD, info);
-			if(receiveCode == ServiceCode.CONTECTS_SUCCESS) {
+			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTACTS_ADD, info);
+			if(receiveCode == ServiceCode.CONTACTS_SUCCESS) {
 				inputNotice.setText("정상 등록되었습니다.");
 				inputNotice.setForeground(Color.BLACK);
 				resetInputInfo();
@@ -388,12 +388,12 @@ public class Contects_Tab extends JPanel implements ActionListener {
 			info += name + ",";
 			info += tel + ",";
 			info += addr;
-			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTECTS_MODIFY, info);
-			if(receiveCode == ServiceCode.CONTECTS_SUCCESS) {
-				contects.put(modifyingInfo.getNo(), new Contects_Info(modifyingInfo.getNo(),
+			receiveCode = nc.sendMsgReceiveCode(ServiceCode.CONTACTS_MODIFY, info);
+			if(receiveCode == ServiceCode.CONTACTS_SUCCESS) {
+				contacts.put(modifyingInfo.getNo(), new Contacts_Info(modifyingInfo.getNo(),
 						modifyingInfo.getSerialNo(),group, name, tel, addr));
 				tableReset();
-				contectsToTable();
+				contactsToTable();
 				inputNotice.setText("정상 수정되었습니다.");
 				inputNotice.setForeground(Color.BLACK);
 				save.setText("저장");
@@ -418,8 +418,8 @@ public class Contects_Tab extends JPanel implements ActionListener {
 			inputNotice.setForeground(Color.BLACK);
 		}
 		if(e.getSource()==quit) {
-			receiveCode = nc.sendCodeReceiveCode(ServiceCode.CONTECTS_EXIT);
-			if(receiveCode == ServiceCode.CONTECTS_QUIT) {
+			receiveCode = nc.sendCodeReceiveCode(ServiceCode.CONTACTS_EXIT);
+			if(receiveCode == ServiceCode.CONTACTS_QUIT) {
 				resultNotice.setText("   ");
 				resultNotice.setForeground(Color.BLACK);
 				inputLabel.setText("|| 연락처 추가 ||");
@@ -430,12 +430,12 @@ public class Contects_Tab extends JPanel implements ActionListener {
 				tableReset();
 				switchPanel(false);
 				nc = null;
-				contects.clear();
+				contacts.clear();
 				try {
 					socket.close();
 				} catch (IOException e1) {
 				}
-				System.out.println(ServiceCode.CONTECTS+"연결 종료");
+				System.out.println(ServiceCode.CONTACTS+"연결 종료");
 			}
 		}
 	}
@@ -514,14 +514,14 @@ public class Contects_Tab extends JPanel implements ActionListener {
 	}
 	
 	public void tableReset() {
-		if(contectsTable.getRowCount()==0) {
+		if(contactsTable.getRowCount()==0) {
 			return;
 		}
 		tableModel.setNumRows(0);
 	}
-	public void contectsToTable() {
-		for(int i=1;i<=contects.keySet().size();i++) {
-			Contects_Info info = contects.get(i);
+	public void contactsToTable() {
+		for(int i=1;i<=contacts.keySet().size();i++) {
+			Contacts_Info info = contacts.get(i);
 			String[] str = {String.valueOf(info.getNo()), info.getGroup(), info.getName(), info.getTel(), info.getAddress()};
 			tableModel.addRow(str);
 		}

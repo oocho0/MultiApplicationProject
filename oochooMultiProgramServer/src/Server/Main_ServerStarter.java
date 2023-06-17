@@ -8,7 +8,7 @@ public class Main_ServerStarter {
 		bs.start();
 		Thread cs = new Thread(new Chat_Server(),ServiceCode.CHATTING);
 		cs.start();
-		Thread co = new Thread(new Contects_Server(), ServiceCode.CONTECTS);
+		Thread co = new Thread(new Contacts_Server(), ServiceCode.CONTACTS);
 		co.start();
 	}
 }

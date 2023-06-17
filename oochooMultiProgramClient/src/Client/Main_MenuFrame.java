@@ -38,7 +38,7 @@ public class Main_MenuFrame extends JFrame implements ChangeListener, ActionList
 		this.IP = ip;
 		setUIFont(new FontUIResource(new Font("Apple SD Gothic Neo", Font.PLAIN, 12)));
 		
-		JPanel login, baseballGameTab,contectsTab;
+		JPanel login, baseballGameTab,contactsTab;
 		
 		GridBagConstraints[] gbc = new GridBagConstraints[3];
 		for(int i= 0;i<3;i++) {
@@ -70,8 +70,8 @@ public class Main_MenuFrame extends JFrame implements ChangeListener, ActionList
 		tabbedPane.addTab("야구게임",baseballGameTab);
 		Chat_Tab chatTab = new Chat_Tab(IP);
 		tabbedPane.addTab("채팅",chatTab);
-		contectsTab = new Contects_Tab(IP);
-		tabbedPane.addTab("사내 연락처", contectsTab);
+		contactsTab = new Contacts_Tab(IP);
+		tabbedPane.addTab("사내 연락처", contactsTab);
 		tabbedPane.setSelectedIndex(0);
 		tabbedPane.addChangeListener(this);
 

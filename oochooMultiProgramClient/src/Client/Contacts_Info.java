@@ -1,6 +1,6 @@
 package Client;
 
-public class Contects_Info {
+public class Contacts_Info {
 	private int no;
 	private String group;
 	private String name;
@@ -8,7 +8,7 @@ public class Contects_Info {
 	private String address;
 	private String serialNo;
 	
-	public Contects_Info(int no, String serialNo, String group, String name, String tel, String address) {
+	public Contacts_Info(int no, String serialNo, String group, String name, String tel, String address) {
 		this.no = no;
 		this.serialNo = serialNo;
 		this.group = group;
