@@ -1,6 +1,5 @@
 # MultiApplicationProject
----
-<h3>통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ver2.0.pdf 원본 확인 가능</h3>
+<h3>통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ver2.0.pdf 원본</h3>
 <img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/65692d81-b6dd-404b-a62d-5f96e41711a2" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 01" width=100%/>
 <img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/06c16cb5-cd60-46f3-97c1-4d0b8d265970" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 02" width=100%/>
 <img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/037a6afe-2930-4ad2-9480-b96bb82549c4" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 03" width=100%/>
