@@ -1,3 +1,4 @@
 /.metadata/
-.number
-.key
+*.number
+*.key
+*.gitignore
