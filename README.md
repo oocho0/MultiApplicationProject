@@ -1,31 +1,30 @@
 # MultiApplicationProject
-
-<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/65692d81-b6dd-404b-a62d-5f96e41711a2" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 01" width=100% />
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎002](https://github.com/oocho0/MultiApplicationProject/assets/111566062/06c16cb5-cd60-46f3-97c1-4d0b8d265970)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎003](https://github.com/oocho0/MultiApplicationProject/assets/111566062/037a6afe-2930-4ad2-9480-b96bb82549c4)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎004](https://github.com/oocho0/MultiApplicationProject/assets/111566062/75b5fe64-0c01-493a-9d8e-9355670d0d26)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎005](https://github.com/oocho0/MultiApplicationProject/assets/111566062/f48734d6-a7a7-4781-bfb3-38daa64a724e)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎006](https://github.com/oocho0/MultiApplicationProject/assets/111566062/7a3500f4-8090-493f-8de0-9f895a9b4f97)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎007](https://github.com/oocho0/MultiApplicationProject/assets/111566062/513ba6d8-ddf8-426d-84e5-cf114bfc2694)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎008](https://github.com/oocho0/MultiApplicationProject/assets/111566062/cd4913d0-d821-44c1-a706-5ab2a176c1bd)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎009](https://github.com/oocho0/MultiApplicationProject/assets/111566062/5fe9ec9a-636f-4b2d-8cda-535896ffcf20)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎010](https://github.com/oocho0/MultiApplicationProject/assets/111566062/9ec2facd-fde8-4c34-810a-204f076f59ca)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎011](https://github.com/oocho0/MultiApplicationProject/assets/111566062/d2cba0ca-90a7-4be1-9435-718c57c1e37a)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎012](https://github.com/oocho0/MultiApplicationProject/assets/111566062/aedaacef-7292-4579-9483-4055dc23b78f)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎013](https://github.com/oocho0/MultiApplicationProject/assets/111566062/cdcad3f1-5b36-40c0-b402-e2ec437037a9)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎014](https://github.com/oocho0/MultiApplicationProject/assets/111566062/e7474abe-e48a-4bf2-86ee-b4e26b25ba9f)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎015](https://github.com/oocho0/MultiApplicationProject/assets/111566062/4d451872-f725-45fe-9dde-1db06b7103cf)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎016](https://github.com/oocho0/MultiApplicationProject/assets/111566062/54924a0d-01ba-4f4e-9d30-148d6700650a)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎017](https://github.com/oocho0/MultiApplicationProject/assets/111566062/437d52b1-2a54-40f3-8b17-7b0d9c6b1f06)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎018](https://github.com/oocho0/MultiApplicationProject/assets/111566062/397de663-687f-4bc8-a7ec-e29be727fa4b)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎019](https://github.com/oocho0/MultiApplicationProject/assets/111566062/beb603c4-5cbc-429c-8e57-7ca7379478c3)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎020](https://github.com/oocho0/MultiApplicationProject/assets/111566062/f82bc2aa-709d-45a6-bb48-06d233eacb42)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎021](https://github.com/oocho0/MultiApplicationProject/assets/111566062/241c3a55-686b-4afd-854a-c5df90c4118d)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎022](https://github.com/oocho0/MultiApplicationProject/assets/111566062/68952257-7bde-4c3b-88a9-cead2ec58c54)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎023](https://github.com/oocho0/MultiApplicationProject/assets/111566062/652ac8f5-c6c5-44b4-9ec3-91e5749fb304)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎024](https://github.com/oocho0/MultiApplicationProject/assets/111566062/38277cec-f032-4a69-8848-7eaacf5134fb)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎025](https://github.com/oocho0/MultiApplicationProject/assets/111566062/f68fe6f8-94c3-4c5d-99af-f50378bbdc3c)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎026](https://github.com/oocho0/MultiApplicationProject/assets/111566062/8a45eb9a-a482-4ba7-bd8b-d63fa491473c)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎027](https://github.com/oocho0/MultiApplicationProject/assets/111566062/128983c0-cf71-431f-8290-14be80463a74)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎028](https://github.com/oocho0/MultiApplicationProject/assets/111566062/e531790d-a2de-4dc1-8d60-45722e60fa4c)
-![‎통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 ‎029](https://github.com/oocho0/MultiApplicationProject/assets/111566062/119f8fcf-03d4-46b6-99d2-983d9962cee8)
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/65692d81-b6dd-404b-a62d-5f96e41711a2" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 01" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/06c16cb5-cd60-46f3-97c1-4d0b8d265970" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 02" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/037a6afe-2930-4ad2-9480-b96bb82549c4" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 03" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/75b5fe64-0c01-493a-9d8e-9355670d0d26" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 04" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/f48734d6-a7a7-4781-bfb3-38daa64a724e" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 05" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/7a3500f4-8090-493f-8de0-9f895a9b4f97" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 06" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/513ba6d8-ddf8-426d-84e5-cf114bfc2694" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 07" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/cd4913d0-d821-44c1-a706-5ab2a176c1bd" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 08" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/5fe9ec9a-636f-4b2d-8cda-535896ffcf20" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 09" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/9ec2facd-fde8-4c34-810a-204f076f59ca" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 10" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/d2cba0ca-90a7-4be1-9435-718c57c1e37a" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 11" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/aedaacef-7292-4579-9483-4055dc23b78f" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 12" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/cdcad3f1-5b36-40c0-b402-e2ec437037a9" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 13" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/e7474abe-e48a-4bf2-86ee-b4e26b25ba9f" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 14" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/4d451872-f725-45fe-9dde-1db06b7103cf" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 15" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/54924a0d-01ba-4f4e-9d30-148d6700650a" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 16" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/437d52b1-2a54-40f3-8b17-7b0d9c6b1f06" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 17" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/397de663-687f-4bc8-a7ec-e29be727fa4b" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 18" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/beb603c4-5cbc-429c-8e57-7ca7379478c3" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 19" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/f82bc2aa-709d-45a6-bb48-06d233eacb42" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 20" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/241c3a55-686b-4afd-854a-c5df90c4118d" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 21" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/68952257-7bde-4c3b-88a9-cead2ec58c54" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 22" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/652ac8f5-c6c5-44b4-9ec3-91e5749fb304" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 23" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/38277cec-f032-4a69-8848-7eaacf5134fb" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 24" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/f68fe6f8-94c3-4c5d-99af-f50378bbdc3c" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 25" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/8a45eb9a-a482-4ba7-bd8b-d63fa491473c" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 26" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/128983c0-cf71-431f-8290-14be80463a74" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 27" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/e531790d-a2de-4dc1-8d60-45722e60fa4c" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 28" width=100%/>
+<img src="https://github.com/oocho0/MultiApplicationProject/assets/111566062/119f8fcf-03d4-46b6-99d2-983d9962cee8" alt="통신 멀티 쓰레드 프로그램 프로젝트 포트폴리오 29" width=100%/>
